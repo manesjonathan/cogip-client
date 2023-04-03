@@ -2,19 +2,20 @@ import {getCompanyById} from "../../backend/backend.js";
 import {useEffect, useState} from "react";
 
 const LastFiveContacts = ({data}) => {
-    const [companies, setCompanies] = useState([]);
+    const [companyNames, setCompanyNames] = useState([]);
 
     useEffect(() => {
-        data.map((contact, index) => {
-            getCompanyById(contact[index])
+        data.map((contact) => {
+            getCompanyById(contact['company_id'])
                 .then(data => {
-                    setCompanies(companies => [...companies, data['company']['name']]);
+                    setCompanyNames(companyNames => [...companyNames, data['company']['name']]);
                 })
                 .catch(error => {
                     console.log(error);
                 });
-        }, []);
-    });
+        });
+    }, [data]);
+
     return (
         <div className={'bg-white px-4 md:px-24'}>
             <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 pb-14'}>Last contacts</h1>
@@ -43,7 +44,7 @@ const LastFiveContacts = ({data}) => {
                                 <td className={'py-3 px-4'}>{contact['name']}</td>
                                 <td className={'py-3 px-4'}>{contact['phone']}</td>
                                 <td className={'py-3 px-4'}>{contact['email']}</td>
-                                <td className={'py-3 px-4'}>{companies[index]}</td>
+                                <td className={'py-3 px-4'}>{companyNames[contact['id']]}</td>
                                 <td className={'py-3 px-4'}>{date.toLocaleDateString()}</td>
                             </tr>
                         )
