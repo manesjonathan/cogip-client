@@ -7,7 +7,7 @@ const Navbar = () => {
 
     return (
         <header>
-            <nav className={'fixed top-0 z-10 w-full justify-between px-auto p-4 bg-yellow-300 text-gray-900 md:p-16'}>
+            <nav className={'fixed top-0 z-10 w-full justify-between px-auto p-4 bg-yellow-300 text-gray-900 md:px-16 md:py-8'}>
                 <div className="container mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <a className="text-2xl md:text-4xl md:mr-12 font-bold leading-relaxed inline-block whitespace-nowrap uppercase"
@@ -38,7 +38,7 @@ const Navbar = () => {
                                     smooth={true}
                                     duration={500}
                                     offset={-50}
-                                    to={'about'}>Invoices
+                                    to={'invoices'}>Invoices
                                 </Link>
                             </li>
                             <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
                                     smooth={true}
                                     duration={500}
                                     offset={-50}
-                                    to={'collection'}>Companies
+                                    to={'companies'}>Companies
                                 </Link>
                             </li>
                             <li>
@@ -56,7 +56,7 @@ const Navbar = () => {
                                     smooth={true}
                                     duration={500}
                                     offset={-50}
-                                    to={'contact'}>Contacts
+                                    to={'contacts'}>Contacts
                                 </Link>
                             </li>
                         </ul>

@@ -1,8 +1,22 @@
-import {getCompanyById, getLatestInvoices} from "../backend/backend.js";
+import {getCompanyById} from "../../backend/backend.js";
 import {useEffect, useState} from "react";
 
-const DataContainer = ({data}) => {
-    console.log(data);
+const LastFiveInvoices = ({data}) => {
+    const [companies, setCompanies] = useState([]);
+
+    useEffect(() => {
+        data.map((invoice) => {
+
+            getCompanyById(invoice['id_company'])
+                .then(data => {
+                    setCompanies(companies => [...companies, data['company']['name']]);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }, []);
+    });
+
     return (
         <div className={'bg-white px-4 md:px-24'}>
             <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 py-14'}>Last invoices</h1>
@@ -28,24 +42,11 @@ const DataContainer = ({data}) => {
                     <tbody>
                     {data.map((invoice, index) => {
                         const date = new Date(invoice['created_at'].split(' ')[0]);
-
-                        const [company, setCompany] = useState([]);
-                        useEffect(() => {
-                            getCompanyById(invoice['id_company'])
-                                .then(data => {
-                                    console.log(data.company.name)
-                                    setCompany(data['company']['name']);
-                                })
-                                .catch(error => {
-                                    console.log(error);
-                                });
-                        }, []);
-
                         return (
                             <tr key={index} className={'even:bg-gray-200'}>
                                 <td className={'py-3 px-4'}>{invoice.ref}</td>
                                 <td className={'py-3 px-4'}>{date.toLocaleDateString()}</td>
-                                <td className={'py-3 px-4'}>{company}</td>
+                                <td className={'py-3 px-4'}>{companies[index]}</td>
                                 <td className={'py-3 px-4'}>{new Date(date.setDate(date.getDate() + 15)).toLocaleDateString()}</td>
                             </tr>
                         )
@@ -59,4 +60,4 @@ const DataContainer = ({data}) => {
 
 }
 
-export default DataContainer;
+export default LastFiveInvoices;
