@@ -7,7 +7,6 @@ const LastFiveCompanies = ({data}) => {
                     <thead>
                     <tr className={'bg-yellow-300'}>
                         <th className={'py-2 px-6 font-bold text-sm text-grey-dark'}>Name
-                            number
                         </th>
                         <th className={'py-2 px-6 font-bold text-sm text-grey-dark'}>TVA
                         </th>

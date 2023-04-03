@@ -121,8 +121,7 @@ const Footer = () => {
                     </li>
                 </ul>
 
-                <p className="text-center md:justify-end mt-6 md:text-right">
-                    Copyright © 2022 • COGIP Inc.
+                <p className="text-center md:justify-end mt-6 md:text-right">Copyright © 2022 • COGIP Inc.
                 </p>
             </div>
         </footer>
