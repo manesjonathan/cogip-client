@@ -5,16 +5,23 @@ const LastFiveContacts = ({data}) => {
     const [companyNames, setCompanyNames] = useState([]);
 
     useEffect(() => {
-        data.map((contact) => {
-            getCompanyById(contact['company_id'])
-                .then(data => {
-                    setCompanyNames(companyNames => [...companyNames, data['company']['name']]);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+        Promise.all(
+            data.map((contact) => {
+                return getCompanyById(contact['company_id'])
+                    .then(data => {
+                        return data['company']['name'];
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        return null;
+                    });
+            })
+        ).then(names => {
+            setCompanyNames(names.filter(name => name !== null));
         });
     }, [data]);
+
+
 
     return (
         <div className={'bg-white px-4 md:px-24'}>
@@ -44,7 +51,7 @@ const LastFiveContacts = ({data}) => {
                                 <td className={'py-3 px-4'}>{contact['name']}</td>
                                 <td className={'py-3 px-4'}>{contact['phone']}</td>
                                 <td className={'py-3 px-4'}>{contact['email']}</td>
-                                <td className={'py-3 px-4'}>{companyNames[contact['id']]}</td>
+                                <td className={'py-3 px-4'}>{companyNames[index]}</td>
                                 <td className={'py-3 px-4'}>{date.toLocaleDateString()}</td>
                             </tr>
                         )

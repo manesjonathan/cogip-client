@@ -5,16 +5,22 @@ const LastFiveInvoices = ({data}) => {
     const [companyIds, setCompanyIds] = useState([]);
 
     useEffect(() => {
-        data.map((invoice) => {
-            getCompanyById(invoice['id_company'])
-                .then(data => {
-                    setCompanyIds(companyIds => [...companyIds, data['company']['name']]);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+        Promise.all(
+            data.map((invoice) => {
+                return getCompanyById(invoice['id_company'])
+                    .then(data => {
+                        return data['company']['name'];
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        return null;
+                    });
+            })
+        ).then(names => {
+            setCompanyIds(names.filter(name => name !== null));
         });
     }, [data]);
+
 
     return (
         <div className={'bg-white px-4 md:px-24'}>
@@ -45,7 +51,7 @@ const LastFiveInvoices = ({data}) => {
                             <tr key={index} className={'even:bg-gray-200'}>
                                 <td className={'py-3 px-4'}>{invoice.ref}</td>
                                 <td className={'py-3 px-4'}>{date.toLocaleDateString()}</td>
-                                <td className={'py-3 px-4'}>{companyIds[invoice['id']]}</td>
+                                <td className={'py-3 px-4'}>{companyIds[index]}</td>
                                 <td className={'py-3 px-4'}>{new Date(date.setDate(date.getDate() + 15)).toLocaleDateString()}</td>
                             </tr>
                         )
