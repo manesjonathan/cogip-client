@@ -45,7 +45,7 @@ const Home = () => {
             <LastFiveInvoices data={invoices}/>
 
             <div className={'flex justify-end'}>
-                <svg width="100" height="100" viewBox="0 0 160 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="100" height="150" viewBox="0 0 160 138" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="177" height="138" fill="url(#pattern0)"/>
                     <defs>
                         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -58,8 +58,8 @@ const Home = () => {
                 </svg>
             </div>
             <LastFiveContacts data={contacts}/>
-            <div className={'flex'}>
-                <svg width="100" height="175" viewBox="0 0 145 213" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className={''}>
+                <svg width="100" height="150" viewBox="0 0 145 213" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="-12.3676" width="181.015" height="141.265" transform="rotate(30 -12.3676 0)"
                           fill="url(#pattern1)"/>
                     <defs>

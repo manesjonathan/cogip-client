@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = null; //'https://cogip.jonathan-manes.be';
+const URL = 'https://cogip.jonathan-manes.be';
 export const getLatestInvoices = async () => {
     const response = await axios.get(`${URL}/get-latest-invoices`);
     return response.data['invoices'];

@@ -26,11 +26,11 @@ const Footer = () => {
                         Square des Martyrs, 6000 Charleroi
                     </p></div>
 
-                    <div className={'flex flex-col sm:flex-row mt-6 text-sm sm:text-lg'}>
+                    <div className={'flex flex-col sm:flex-row sm:mt-6 text-sm sm:text-lg'}>
                         <div className={'flex items-center'}><BsTelephoneFill className={'text-lg text-yellow-300'}/>
                             <p className={'ml-4'}>(123) 456-7890</p>
                         </div>
-                        <div className={'flex items-center'}><AiFillPrinter className={'text-lg text-yellow-300'}/>
+                        <div className={'flex items-center sm:ml-28'}><AiFillPrinter className={'text-lg text-yellow-300'}/>
                             <p className={'ml-4'}>(123) 456-7890</p>
                         </div>
 
@@ -108,6 +108,15 @@ const Footer = () => {
                             duration={500}
                             offset={-50}
                             to={'contacts'}>CONTACTS
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
+                            smooth={true}
+                            duration={500}
+                            offset={-50}
+                            to={'policy'}>PRIVACY POLICY
                         </Link>
                     </li>
                 </ul>
