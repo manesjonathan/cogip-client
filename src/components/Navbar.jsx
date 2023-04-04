@@ -38,7 +38,7 @@ const Navbar = () => {
                                     smooth={true}
                                     duration={500}
                                     offset={-50}
-                                    to={'invoices'}>Invoices
+                                    to={'/invoices'}>Invoices
                                 </Link>
                             </li>
                             <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
                                     smooth={true}
                                     duration={500}
                                     offset={-50}
-                                    to={'companies'}>Companies
+                                    to={'/companies'}>Companies
                                 </Link>
                             </li>
                             <li>
@@ -56,7 +56,7 @@ const Navbar = () => {
                                     smooth={true}
                                     duration={500}
                                     offset={-50}
-                                    to={'contacts'}>Contacts
+                                    to={'/contacts'}>Contacts
                                 </Link>
                             </li>
                         </ul>
@@ -67,14 +67,14 @@ const Navbar = () => {
                             smooth={true}
                             duration={500}
                             offset={-50}
-                            to={'contact'}>Sign up
+                            to={'/'}>Sign up
                         </Link>
                         <Link
                             className={'px-3 py-2 flex font-bold leading-snug cursor-pointer'}
                             smooth={true}
                             duration={500}
                             offset={-50}
-                            to={'contact'}>Login
+                            to={'/'}>Login
                         </Link>
                     </div>
                 </div>

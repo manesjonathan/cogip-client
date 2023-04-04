@@ -1,7 +1,7 @@
-import {getCompanyById} from "../../backend/backend.js";
+import {getCompanyById} from "../backend/backend.js";
 import {useEffect, useState} from "react";
 
-const LastFiveInvoices = ({data}) => {
+const InvoicesRendering = ({data}) => {
     const [companyIds, setCompanyIds] = useState([]);
 
     useEffect(() => {
@@ -50,9 +50,9 @@ const LastFiveInvoices = ({data}) => {
                         return (
                             <tr key={index} className={'even:bg-gray-200'}>
                                 <td className={'py-3 px-4'}>{invoice.ref}</td>
-                                <td className={'py-3 px-4'}>{date.toLocaleDateString()}</td>
-                                <td className={'py-3 px-4'}>{companyIds[index]}</td>
                                 <td className={'py-3 px-4'}>{new Date(date.setDate(date.getDate() + 15)).toLocaleDateString()}</td>
+                                <td className={'py-3 px-4'}>{companyIds[index]}</td>
+                                <td className={'py-3 px-4'}>{new Date(invoice['created_at'].split(' ')[0]).toLocaleDateString()}</td>
                             </tr>
                         )
                     })}
@@ -62,7 +62,6 @@ const LastFiveInvoices = ({data}) => {
 
         </div>
     );
-
 }
 
-export default LastFiveInvoices;
+export default InvoicesRendering;

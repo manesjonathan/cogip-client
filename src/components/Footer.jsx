@@ -89,7 +89,7 @@ const Footer = () => {
                             smooth={true}
                             duration={500}
                             offset={-50}
-                            to={'invoices'}>INVOICES
+                            to={'/invoices'}>INVOICES
                         </Link>
                     </li>
                     <li>
@@ -98,7 +98,7 @@ const Footer = () => {
                             smooth={true}
                             duration={500}
                             offset={-50}
-                            to={'companies'}>COMPANIES
+                            to={'/companies'}>COMPANIES
                         </Link>
                     </li>
                     <li>
@@ -107,7 +107,7 @@ const Footer = () => {
                             smooth={true}
                             duration={500}
                             offset={-50}
-                            to={'contacts'}>CONTACTS
+                            to={'/contacts'}>CONTACTS
                         </Link>
                     </li>
                     <li>
@@ -116,7 +116,7 @@ const Footer = () => {
                             smooth={true}
                             duration={500}
                             offset={-50}
-                            to={'policy'}>PRIVACY POLICY
+                            to={'/'}>PRIVACY POLICY
                         </Link>
                     </li>
                 </ul>

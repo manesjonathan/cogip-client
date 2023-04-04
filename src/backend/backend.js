@@ -18,3 +18,9 @@ export const getLatestCompanies = async () => {
     const response = await axios.get(`${URL}/get-latest-companies`);
     return response.data['companies'];
 }
+
+export const getInvoices = async () => {
+    const response = await axios.get(`${URL}/get-invoices`);
+    return response.data['invoices'];
+}
+

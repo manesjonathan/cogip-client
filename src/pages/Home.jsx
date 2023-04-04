@@ -1,19 +1,21 @@
 import Hero from "../components/Hero.jsx";
-import LastFiveInvoices from "../components/tables/LastFiveInvoices.jsx";
 import {getLatestCompanies, getLatestContacts, getLatestInvoices} from "../backend/backend.js";
 import {useEffect, useState} from "react";
 import LastFiveContacts from "../components/tables/LastFiveContacts.jsx";
 import LastFiveCompanies from "../components/tables/LastFiveCompanies.jsx";
 import HeroFooter from "../components/HeroFooter.jsx";
+import InvoicesRendering from "../components/InvoicesRendering.jsx";
 
 const Home = () => {
     const [invoices, setInvoices] = useState([]);
     const [contacts, setContacts] = useState([]);
     const [companies, setCompanies] = useState([]);
+
     useEffect(() => {
         getLatestInvoices()
             .then(data => {
                 setInvoices(data);
+
             })
             .catch(error => {
                 console.log(error);
@@ -32,6 +34,7 @@ const Home = () => {
             .catch(error => {
                 console.log(error);
             });
+
     }, []);
 
     return (
@@ -42,7 +45,8 @@ const Home = () => {
                     <path d="M0 39.3514H649.5L1046 0L1299 112H0V39.3514Z" fill="white"/>
                 </svg>
             </div>
-            <LastFiveInvoices data={invoices}/>
+
+            <InvoicesRendering data={invoices}/>
 
             <div className={'flex justify-end'}>
                 <svg width="100" height="150" viewBox="0 0 160 138" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +61,9 @@ const Home = () => {
                     </defs>
                 </svg>
             </div>
+
             <LastFiveContacts data={contacts}/>
+
             <div className={''}>
                 <svg width="100" height="150" viewBox="0 0 145 213" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="-12.3676" width="181.015" height="141.265" transform="rotate(30 -12.3676 0)"
@@ -72,7 +78,9 @@ const Home = () => {
                     </defs>
                 </svg>
             </div>
+
             <LastFiveCompanies data={companies}/>
+
             <HeroFooter/>
         </main>
     )
