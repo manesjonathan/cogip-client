@@ -1,7 +1,7 @@
 import {getCompanyById} from "../backend/backend.js";
 import {useEffect, useState} from "react";
 
-const InvoicesRendering = ({data}) => {
+const InvoicesRendering = ({data, title}) => {
     const [companyIds, setCompanyIds] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const InvoicesRendering = ({data}) => {
 
     return (
         <div className={'bg-white px-4 md:px-24'}>
-            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 py-14'}>Last invoices</h1>
+            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 py-14'}>{title}</h1>
             <div className="flex flex-col  overflow-x-auto">
 
                 <table className={'w-full text-left border-collapse font-bold overflow-x-auto'}>

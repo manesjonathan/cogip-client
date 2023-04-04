@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {Link} from 'react-scroll'
 import {FaBars} from "react-icons/fa";
 
 const Navbar = () => {
@@ -7,7 +6,8 @@ const Navbar = () => {
 
     return (
         <header>
-            <nav className={'fixed top-0 z-10 w-full justify-between px-auto p-4 bg-yellow-300 text-gray-900 md:px-16 md:py-8'}>
+            <nav
+                className={'fixed top-0 z-10 w-full justify-between px-auto p-4 bg-yellow-300 text-gray-900 md:px-16 md:py-8'}>
                 <div className="container mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <a className="text-2xl md:text-4xl md:mr-12 font-bold leading-relaxed inline-block whitespace-nowrap uppercase"
@@ -24,58 +24,41 @@ const Navbar = () => {
                          id="navbar">
                         <ul className="flex flex-col lg:flex-row list-none text-center justify-center">
                             <li>
-                                <Link
+                                <a
                                     className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                                    smooth={true}
-                                    duration={500}
-                                    offset={-50}
-                                    to={'home'}>Home
-                                </Link>
+                                    href={'/'}>Home
+                                </a>
                             </li>
                             <li>
-                                <Link
+                                <a
                                     className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                                    smooth={true}
-                                    duration={500}
-                                    offset={-50}
-                                    to={'/invoices'}>Invoices
-                                </Link>
+
+                                    href={'/invoices'}>Invoices
+                                </a>
                             </li>
                             <li>
-                                <Link
+                                <a
                                     className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                                    smooth={true}
-                                    duration={500}
-                                    offset={-50}
-                                    to={'/companies'}>Companies
-                                </Link>
+
+                                    href={'/companies'}>Companies
+                                </a>
                             </li>
                             <li>
-                                <Link
+                                <a
                                     className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                                    smooth={true}
-                                    duration={500}
-                                    offset={-50}
-                                    to={'/contacts'}>Contacts
-                                </Link>
+
+                                    href={'/contacts'}>Contacts
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div className={"lg:flex lg:flex-row flex-col " + (navbarOpen ? " flex" : " hidden")}>
-                        <Link
-                            className={'px-3 py-2 mr-8 flex font-bold leading-snug cursor-pointer rounded-lg bg-gray-50'}
-                            smooth={true}
-                            duration={500}
-                            offset={-50}
-                            to={'/'}>Sign up
-                        </Link>
-                        <Link
-                            className={'px-3 py-2 flex font-bold leading-snug cursor-pointer'}
-                            smooth={true}
-                            duration={500}
-                            offset={-50}
-                            to={'/'}>Login
-                        </Link>
+                        <a className={'px-3 py-2 mr-8 flex font-bold leading-snug cursor-pointer rounded-lg bg-gray-50'}
+                           href={'/'}>Sign up
+                        </a>
+                        <a className={'px-3 py-2 flex font-bold leading-snug cursor-pointer'}
+                           href={'/'}>Login
+                        </a>
                     </div>
                 </div>
             </nav>

@@ -46,7 +46,7 @@ const Home = () => {
                 </svg>
             </div>
 
-            <InvoicesRendering data={invoices}/>
+            <InvoicesRendering data={invoices} title={'Last invoices'}/>
 
             <div className={'flex justify-end'}>
                 <svg width="100" height="150" viewBox="0 0 160 138" fill="none" xmlns="http://www.w3.org/2000/svg">
