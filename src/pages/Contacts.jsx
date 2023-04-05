@@ -1,19 +1,19 @@
 import {useEffect, useState} from "react";
-import {getInvoices} from "../backend/backend.js";
+import {getContacts} from "../backend/backend.js";
 import ReactPaginate from 'react-paginate';
-import InvoicesRendering from "../components/tables/InvoicesRendering.jsx";
+import ContactsRendering from "../components/tables/ContactsRendering.jsx";
 
 const Invoices = () => {
     const itemsPerPage = 10;
-    const [invoices, setInvoices] = useState([]);
+    const [contacts, setContacts] = useState([]);
     const [itemOffset, setItemOffset] = useState(0);
     const endOffset = itemOffset + itemsPerPage;
     const [currentItems, setCurrentItems] = useState([]);
 
     useEffect(() => {
-        getInvoices()
+        getContacts()
             .then((data) => {
-                setInvoices(data);
+                setContacts(data);
                 setCurrentItems(data.slice(itemOffset, endOffset));
             })
             .catch((error) => {
@@ -22,7 +22,7 @@ const Invoices = () => {
     }, [itemOffset]);
 
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    const pageCount = Math.ceil(invoices.length / itemsPerPage);
+    const pageCount = Math.ceil(contacts.length / itemsPerPage);
 
     const handlePageClick = (event) => {
         const newOffset = event.selected * itemsPerPage;
@@ -34,10 +34,10 @@ const Invoices = () => {
         const {value} = e.target;
         if (value === "") {
             setItemOffset(0);
-            setCurrentItems(invoices.slice(0, itemsPerPage));
+            setCurrentItems(contacts.slice(0, itemsPerPage));
         } else {
             setCurrentItems(
-                invoices.filter((item) =>
+                contacts.filter((item) =>
                     item["name"].toLowerCase().includes(value.toLowerCase())
                 ).slice(0, itemsPerPage)
             );
@@ -58,7 +58,7 @@ const Invoices = () => {
                 </svg>
             </div>
             <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900 px-4 md:px-24">
-                All invoices
+                All contacts
             </h1>
             <div className="w-full md:text-right mb-8 px-4 pt-4 md:px-24">
                 <input
@@ -70,9 +70,9 @@ const Invoices = () => {
                     placeholder="Search"/>
             </div>
 
-            <InvoicesRendering
+            <ContactsRendering
                 data={currentItems}
-                title="All invoices"
+                title="All contacts"
                 search={true}
                 key={currentItems.map((item) => item.id).join()}/>
 

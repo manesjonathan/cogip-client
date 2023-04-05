@@ -1,5 +1,4 @@
 const InvoicesRendering = ({data}) => {
-
     return (
         <div className={'bg-white px-4 md:px-24'}>
             <div className="flex flex-col overflow-x-auto">

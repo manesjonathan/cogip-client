@@ -5,6 +5,8 @@ import Home from "./pages/Home.jsx";
 import Footer from "./components/Footer.jsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Invoices from "./pages/Invoices.jsx";
+import Contacts from "./pages/Contacts.jsx";
+import Companies from "./pages/Companies.jsx";
 
 function App() {
     return (
@@ -21,6 +23,20 @@ function App() {
                     <Fragment>
                         <Navbar/>
                         <Invoices/>
+                        <Footer/>
+                    </Fragment>
+                }/>
+                <Route path="/companies" element={
+                    <Fragment>
+                        <Navbar/>
+                        <Companies/>
+                        <Footer/>
+                    </Fragment>
+                }/>
+                <Route path="/contacts" element={
+                    <Fragment>
+                        <Navbar/>
+                        <Contacts/>
                         <Footer/>
                     </Fragment>
                 }/>

@@ -1,8 +1,8 @@
 import Hero from "../components/Hero.jsx";
 import {getLatestCompanies, getLatestContacts, getLatestInvoices} from "../backend/backend.js";
 import {useEffect, useState} from "react";
-import LastFiveContacts from "../components/tables/LastFiveContacts.jsx";
-import LastFiveCompanies from "../components/tables/LastFiveCompanies.jsx";
+import ContactsRendering from "../components/tables/ContactsRendering.jsx";
+import CompaniesRendering from "../components/tables/CompaniesRendering.jsx";
 import HeroFooter from "../components/HeroFooter.jsx";
 import InvoicesRendering from "../components/tables/InvoicesRendering.jsx";
 
@@ -45,8 +45,8 @@ const Home = () => {
                     <path d="M0 39.3514H649.5L1046 0L1299 112H0V39.3514Z" fill="white"/>
                 </svg>
             </div>
-            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 px-4 md:px-24 py-14'}>Last invoices</h1>
 
+            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 px-4 md:px-24 py-14'}>Last invoices</h1>
             <InvoicesRendering data={invoices} title={'Last invoices'} search={false}/>
 
             <div className={'flex justify-end'}>
@@ -63,7 +63,8 @@ const Home = () => {
                 </svg>
             </div>
 
-            <LastFiveContacts data={contacts}/>
+            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 px-4 md:px-24 py-14'}>Last contacts</h1>
+            <ContactsRendering data={contacts}/>
 
             <div className={''}>
                 <svg width="100" height="150" viewBox="0 0 145 213" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +81,8 @@ const Home = () => {
                 </svg>
             </div>
 
-            <LastFiveCompanies data={companies}/>
+            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 px-4 md:px-24 py-14'}>Last companies</h1>
+            <CompaniesRendering data={companies}/>
 
             <HeroFooter/>
         </main>

@@ -24,3 +24,14 @@ export const getInvoices = async () => {
     return response.data['invoices'];
 }
 
+export const getContacts = async () => {
+    const response = await axios.get(`${URL}/get-contacts`);
+    return response.data['contacts'];
+}
+
+
+export const getCompanies = async () => {
+    const response = await axios.get(`${URL}/get-companies`);
+    return response.data['companies'];
+}
+
