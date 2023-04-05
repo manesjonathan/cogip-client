@@ -67,7 +67,7 @@ const Invoices = () => {
                     type="search"
                     name="search"
                     id="search"
-                    placeholder="Search"/>
+                    placeholder="Search company"/>
             </div>
 
             <InvoicesRendering
