@@ -9,6 +9,7 @@ const Invoices = () => {
     const [itemOffset, setItemOffset] = useState(0);
     const endOffset = itemOffset + itemsPerPage;
 
+    const [searchField, setSearchField] = useState("");
     const [currentItems, setCurrentItems] = useState([]);
 
     useEffect(() => {
@@ -32,13 +33,20 @@ const Invoices = () => {
     };
 
     const handleChange = (e) => {
-        const input = e.target.value;
-        setCurrentItems(
-            invoices.filter((item) =>
-                item["name"].toLowerCase().includes(input.toLowerCase())
-            ).slice(itemOffset, itemOffset + itemsPerPage)
-        );
+        const { value } = e.target;
+        setSearchField(value);
+        if (value === "") {
+            setItemOffset(0);
+            setCurrentItems(invoices.slice(0, itemsPerPage));
+        } else {
+            setCurrentItems(
+                invoices.filter((item) =>
+                    item["name"].toLowerCase().includes(value.toLowerCase())
+                ).slice(0, itemsPerPage)
+            );
+        }
     };
+
 
     return (
         <main className="mt-[4rem] md:mt-[6.5rem] flex flex-col">
