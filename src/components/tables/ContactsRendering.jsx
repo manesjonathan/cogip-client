@@ -5,7 +5,7 @@ const ContactsRendering = ({data}) => {
 
     function handleOnClick(e, contactId) {
         console.log(e.target.id);
-        navigate(`/contacts/${contactId}`);
+        navigate(`/contact/${contactId}`);
     }
 
     return (

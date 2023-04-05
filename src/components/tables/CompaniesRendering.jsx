@@ -5,7 +5,7 @@ const CompaniesRendering = ({data}) => {
 
     function handleOnClick(e, companyId) {
         console.log(e.target.id);
-        navigate(`/companies/${companyId}`);
+        navigate(`/company/${companyId}`);
     }
 
     return (

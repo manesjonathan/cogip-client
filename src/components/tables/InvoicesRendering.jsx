@@ -5,7 +5,7 @@ const InvoicesRendering = ({data}) => {
 
     function handleOnClick(e, invoiceId) {
         console.log(e.target.id);
-        navigate(`/invoices/${invoiceId}`);
+        navigate(`/invoice/${invoiceId}`);
     }
     return (
         <div className={'bg-white px-4 md:px-24'}>

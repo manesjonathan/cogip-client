@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {getCompanyById, getContactsByCompany, getInvoicesByCompany} from "../backend/backend.js";
 import PictureProfile1 from "../assets/images/img1.png"
 import PictureProfile2 from "../assets/images/img2.png"
@@ -12,6 +12,12 @@ const CompanyDetails = () => {
     const [contacts, setContacts] = useState([]);
     const [invoices, setInvoices] = useState([]);
 
+    const navigate = useNavigate();
+
+    function handleOnClick(e, contactId) {
+        console.log(e.target.id);
+        navigate(`/contact/${contactId}`);
+    }
     useEffect(() => {
         getCompanyById(id).then((data) => {
             setCompany(data);
@@ -65,7 +71,8 @@ const CompanyDetails = () => {
                 <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'}>
                     {contacts.map((contact, index) => (
                         <div key={index}
-                             className={'flex bg-gray-100 rounded-2xl p-4 items-center justify-center bg-opacity-60 backdrop-blur-sm'}>
+                             className={'flex bg-gray-100 rounded-2xl p-4 items-center justify-center bg-opacity-60 backdrop-blur-sm cursor-pointer'}
+                             onClick={(e) => handleOnClick(e, contact['id'])}>
                             <img src={index % 2 !== 0 ? PictureProfile1 : PictureProfile2} alt="Profile picture"
                                  className={'w-24 h-24 rounded-full'}/>
                             <div className={'flex flex-col ml-4'}>

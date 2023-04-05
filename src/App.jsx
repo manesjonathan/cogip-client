@@ -8,6 +8,7 @@ import Invoices from "./pages/Invoices.jsx";
 import Contacts from "./pages/Contacts.jsx";
 import Companies from "./pages/Companies.jsx";
 import CompanyDetails from "./pages/CompanyDetails.jsx";
+import ContactDetails from "./pages/ContactDetails.jsx";
 
 function App() {
     return (
@@ -41,24 +42,24 @@ function App() {
                         <Footer/>
                     </Fragment>
                 }/>
-                <Route path='/invoices/:id' element={
+                <Route path='/invoice/:id' element={
                     <Fragment>
                         <Navbar/>
                         <h2>Contact details</h2>
                         <Footer/>
                     </Fragment>
                 }/>
-                <Route path='/companies/:id' element={
+                <Route path='/company/:id' element={
                     <Fragment>
                         <Navbar/>
                         <CompanyDetails/>
                         <Footer/>
                     </Fragment>
                 }/>
-                <Route path='/contacts/:id' element={
+                <Route path='/contact/:id' element={
                     <Fragment>
                         <Navbar/>
-                        <h2>Contact details</h2>
+                        <ContactDetails/>
                         <Footer/>
                     </Fragment>
                 }/>

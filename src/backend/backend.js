@@ -42,3 +42,9 @@ export const getInvoicesByCompany = async (id) => {
     const response = await axios.get(`${URL}/get-invoices/company/${id}`);
     return response.data['invoices'];
 }
+
+export const getContactById = async (id) => {
+    const response = await axios.get(`${URL}/get-contact/${id}`);
+    console.log(response.data['contact']);
+    return response.data['contact'];
+}
