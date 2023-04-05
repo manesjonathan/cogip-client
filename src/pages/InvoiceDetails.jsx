@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 const InvoiceDetails = () => {
     const {id} = useParams();
     const [invoice, setInvoice] = useState(null);
+    const date = new Date(invoice['created_at'].split(' ')[0]);
 
     useEffect(() => {
         getInvoiceById(id)
@@ -20,8 +21,6 @@ const InvoiceDetails = () => {
     if (!invoice) {
         return <div>Loading...</div>;
     }
-    const date = new Date(invoice['created_at'].split(' ')[0]);
-
 
     return (
         <main className="mt-[4rem] md:mt-[6.5rem] flex flex-col">
