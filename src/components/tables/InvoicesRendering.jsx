@@ -1,4 +1,12 @@
+import {useNavigate} from "react-router-dom";
+
 const InvoicesRendering = ({data}) => {
+    const navigate = useNavigate();
+
+    function handleOnClick(e, invoiceId) {
+        console.log(e.target.id);
+        navigate(`/invoices/${invoiceId}`);
+    }
     return (
         <div className={'bg-white px-4 md:px-24'}>
             <div className="flex flex-col overflow-x-auto">
@@ -22,7 +30,8 @@ const InvoicesRendering = ({data}) => {
                     {data.map((invoice, index) => {
                         const date = new Date(invoice['created_at'].split(' ')[0]);
                         return (
-                            <tr key={index} className={'even:bg-gray-200'}>
+                            <tr key={index} className={'even:bg-gray-200 cursor-pointer'}
+                                onClick={(e) => handleOnClick(e, invoice['id'])}>
                                 <td className={'py-3 px-4'}>{invoice.ref}</td>
                                 <td className={'py-3 px-4'}>{new Date(date.setDate(date.getDate() + 15)).toLocaleDateString()}</td>
                                 <td className={'py-3 px-4'}>{invoice['name']}</td>

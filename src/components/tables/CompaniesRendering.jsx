@@ -1,4 +1,13 @@
+import {useNavigate} from "react-router-dom";
+
 const CompaniesRendering = ({data}) => {
+    const navigate = useNavigate();
+
+    function handleOnClick(e, companyId) {
+        console.log(e.target.id);
+        navigate(`/companies/${companyId}`);
+    }
+
     return (
         <div className={'bg-white px-4 md:px-24'}>
             <div className="flex flex-col  overflow-x-auto">
@@ -23,7 +32,8 @@ const CompaniesRendering = ({data}) => {
                         const date = new Date(company['created_at'].split(' ')[0]);
 
                         return (
-                            <tr key={index} className={'even:bg-gray-200'}>
+                            <tr key={index} className={'even:bg-gray-200 cursor-pointer'}
+                                onClick={(e) => handleOnClick(e, company['id'])}>
                                 <td className={'py-3 px-4'}>{company['name']}</td>
                                 <td className={'py-3 px-4'}>{company['tva']}</td>
                                 <td className={'py-3 px-4'}>{company['country']}</td>

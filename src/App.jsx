@@ -40,6 +40,28 @@ function App() {
                         <Footer/>
                     </Fragment>
                 }/>
+                <Route path='/invoices/:id' element={
+                    <Fragment>
+                        <Navbar/>
+                        <h2>Contact details</h2>
+                        <Footer/>
+                    </Fragment>
+                }/>
+                <Route path='/companies/:id' element={
+                    <Fragment>
+                        <Navbar/>
+                        <h2>Contact details</h2>
+                        <Footer/>
+                    </Fragment>
+                }/>
+                <Route path='/contacts/:id' element={
+                    <Fragment>
+                        <Navbar/>
+                        <h2>Contact details</h2>
+                        <Footer/>
+                    </Fragment>
+                }/>
+
             </Routes>
         </BrowserRouter>
     )

@@ -1,4 +1,13 @@
+import {useNavigate} from "react-router-dom";
+
 const ContactsRendering = ({data}) => {
+    const navigate = useNavigate();
+
+    function handleOnClick(e, contactId) {
+        console.log(e.target.id);
+        navigate(`/contacts/${contactId}`);
+    }
+
     return (
         <div className={'bg-white px-4 md:px-24'}>
             <div className="flex flex-col  overflow-x-auto">
@@ -22,7 +31,8 @@ const ContactsRendering = ({data}) => {
                     {data.map((contact, index) => {
                         const date = new Date(contact['created_at'].split(' ')[0]);
                         return (
-                            <tr key={index} className={'even:bg-gray-200'}>
+                            <tr key={index} className={'even:bg-gray-200 cursor-pointer'}
+                                onClick={(e) => handleOnClick(e, contact['id'])}>
                                 <td className={'py-3 px-4'}>{contact['name']}</td>
                                 <td className={'py-3 px-4'}>{contact['phone']}</td>
                                 <td className={'py-3 px-4'}>{contact['email']}</td>
