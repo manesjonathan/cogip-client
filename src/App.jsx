@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Invoices from "./pages/Invoices.jsx";
 import Contacts from "./pages/Contacts.jsx";
 import Companies from "./pages/Companies.jsx";
+import CompanyDetails from "./pages/CompanyDetails.jsx";
 
 function App() {
     return (
@@ -50,7 +51,7 @@ function App() {
                 <Route path='/companies/:id' element={
                     <Fragment>
                         <Navbar/>
-                        <h2>Contact details</h2>
+                        <CompanyDetails/>
                         <Footer/>
                     </Fragment>
                 }/>

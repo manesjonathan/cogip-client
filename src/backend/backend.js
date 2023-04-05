@@ -7,7 +7,7 @@ export const getLatestInvoices = async () => {
 }
 export const getCompanyById = async (id) => {
     const response = await axios.get(`${URL}/get-company/${id}`);
-    return response.data;
+    return response.data['company'];
 }
 
 export const getLatestContacts = async () => {
@@ -29,9 +29,16 @@ export const getContacts = async () => {
     return response.data['contacts'];
 }
 
-
 export const getCompanies = async () => {
     const response = await axios.get(`${URL}/get-companies`);
     return response.data['companies'];
 }
+export const getContactsByCompany = async (id) => {
+    const response = await axios.get(`${URL}/get-contacts/company/${id}`);
+    return response.data['contacts'];
+}
 
+export const getInvoicesByCompany = async (id) => {
+    const response = await axios.get(`${URL}/get-invoices/company/${id}`);
+    return response.data['invoices'];
+}
