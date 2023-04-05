@@ -48,3 +48,9 @@ export const getContactById = async (id) => {
     console.log(response.data['contact']);
     return response.data['contact'];
 }
+
+export const getInvoiceById = async (id) => {
+    const response = await axios.get(`${URL}/get-invoice/${id}`);
+    console.log(response.data['invoice']);
+    return response.data['invoice'];
+}

@@ -9,6 +9,7 @@ import Contacts from "./pages/Contacts.jsx";
 import Companies from "./pages/Companies.jsx";
 import CompanyDetails from "./pages/CompanyDetails.jsx";
 import ContactDetails from "./pages/ContactDetails.jsx";
+import InvoiceDetails from "./pages/InvoiceDetails.jsx";
 
 function App() {
     return (
@@ -45,7 +46,7 @@ function App() {
                 <Route path='/invoice/:id' element={
                     <Fragment>
                         <Navbar/>
-                        <h2>Contact details</h2>
+                        <InvoiceDetails/>
                         <Footer/>
                     </Fragment>
                 }/>
