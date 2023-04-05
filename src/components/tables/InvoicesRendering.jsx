@@ -1,7 +1,7 @@
-import {getCompanyById} from "../backend/backend.js";
+import {getCompanyById} from "../../backend/backend.js";
 import {useEffect, useState} from "react";
 
-const InvoicesRendering = ({data, title}) => {
+const InvoicesRendering = ({data}) => {
     const [companyIds, setCompanyIds] = useState([]);
 
     useEffect(() => {
@@ -21,14 +21,10 @@ const InvoicesRendering = ({data, title}) => {
         });
     }, [data]);
 
-
     return (
         <div className={'bg-white px-4 md:px-24'}>
-            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 py-14'}>{title}</h1>
-            <div className="flex flex-col  overflow-x-auto">
-
+            <div className="flex flex-col overflow-x-auto">
                 <table className={'w-full text-left border-collapse font-bold overflow-x-auto'}>
-
                     <thead>
                     <tr className={'bg-yellow-300'}>
                         <th className={'py-2 px-6 font-bold text-sm text-grey-dark'}>Invoice
@@ -59,7 +55,6 @@ const InvoicesRendering = ({data, title}) => {
                     </tbody>
                 </table>
             </div>
-
         </div>
     );
 }

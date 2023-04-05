@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import LastFiveContacts from "../components/tables/LastFiveContacts.jsx";
 import LastFiveCompanies from "../components/tables/LastFiveCompanies.jsx";
 import HeroFooter from "../components/HeroFooter.jsx";
-import InvoicesRendering from "../components/InvoicesRendering.jsx";
+import InvoicesRendering from "../components/tables/InvoicesRendering.jsx";
 
 const Home = () => {
     const [invoices, setInvoices] = useState([]);
@@ -46,7 +46,7 @@ const Home = () => {
                 </svg>
             </div>
 
-            <InvoicesRendering data={invoices} title={'Last invoices'}/>
+            <InvoicesRendering data={invoices} title={'Last invoices'} search={false}/>
 
             <div className={'flex justify-end'}>
                 <svg width="100" height="150" viewBox="0 0 160 138" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,4 +1,3 @@
-import {Link} from "react-scroll";
 import {
     AiFillFacebook,
     AiFillPrinter,
@@ -22,7 +21,8 @@ const Footer = () => {
                 </div>
 
                 <div className={'mt-4 md:mt-0 mx-auto w-full'}>
-                    <div className={'flex items-center text-sm sm:text-lg'}><IoLocationSharp className={'text-lg text-yellow-300'}/> <p className={'ml-4'}>
+                    <div className={'flex items-center text-sm sm:text-lg'}><IoLocationSharp
+                        className={'text-lg text-yellow-300'}/> <p className={'ml-4'}>
                         Square des Martyrs, 6000 Charleroi
                     </p></div>
 
@@ -30,7 +30,8 @@ const Footer = () => {
                         <div className={'flex items-center'}><BsTelephoneFill className={'text-lg text-yellow-300'}/>
                             <p className={'ml-4'}>(123) 456-7890</p>
                         </div>
-                        <div className={'flex items-center sm:ml-28'}><AiFillPrinter className={'text-lg text-yellow-300'}/>
+                        <div className={'flex items-center sm:ml-28'}><AiFillPrinter
+                            className={'text-lg text-yellow-300'}/>
                             <p className={'ml-4'}>(123) 456-7890</p>
                         </div>
 
@@ -75,49 +76,34 @@ const Footer = () => {
             <div className="mt-12 border-t-2 border-gray-100 flex flex-col md:flex-row">
                 <ul className="flex flex-col md:flex-row list-none w-3/4 mt-6">
                     <li>
-                        <Link
+                        <a
                             className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                            smooth={true}
-                            duration={500}
-                            offset={-50}
-                            to={'home'}>HOME
-                        </Link>
+                            href={'/'}>HOME
+                        </a>
                     </li>
                     <li>
-                        <Link
+                        <a
                             className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                            smooth={true}
-                            duration={500}
-                            offset={-50}
-                            to={'/invoices'}>INVOICES
-                        </Link>
+                            href={'/invoices'}>INVOICES
+                        </a>
                     </li>
                     <li>
-                        <Link
+                        <a
                             className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                            smooth={true}
-                            duration={500}
-                            offset={-50}
-                            to={'/companies'}>COMPANIES
-                        </Link>
+                            href={'/companies'}>COMPANIES
+                        </a>
                     </li>
                     <li>
-                        <Link
+                        <a
                             className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                            smooth={true}
-                            duration={500}
-                            offset={-50}
-                            to={'/contacts'}>CONTACTS
-                        </Link>
+                            href={'/contacts'}>CONTACTS
+                        </a>
                     </li>
                     <li>
-                        <Link
+                        <a
                             className={'px-3 py-2 flex font-bold leading-snug cursor-pointer hover:outline hover:outline-1 hover:outline-gray-900'}
-                            smooth={true}
-                            duration={500}
-                            offset={-50}
-                            to={'/'}>PRIVACY POLICY
-                        </Link>
+                            href={'/'}>PRIVACY POLICY
+                        </a>
                     </li>
                 </ul>
 
