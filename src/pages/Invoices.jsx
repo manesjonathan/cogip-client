@@ -60,10 +60,10 @@ const Invoices = () => {
                     />
                 </svg>
             </div>
-            <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900 px-24">
+            <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900 px-4 md:px-24">
                 All invoices
             </h1>
-            <div className="w-full text-right mb-8 px-24">
+            <div className="w-full md:text-right mb-8 px-4 pt-4 md:px-24">
                 <input
                     onChange={handleChange}
                     className="rounded-md border-2 border-gray-300 p-1"
@@ -82,7 +82,7 @@ const Invoices = () => {
             />
 
             <ReactPaginate
-                className="flex w-1/2 justify-between mx-auto pt-12"
+                className="flex w-2/3 justify-between mx-auto pt-12"
                 breakLabel="..."
                 nextLabel="next >"
                 onPageChange={handlePageClick}

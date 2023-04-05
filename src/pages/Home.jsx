@@ -45,7 +45,7 @@ const Home = () => {
                     <path d="M0 39.3514H649.5L1046 0L1299 112H0V39.3514Z" fill="white"/>
                 </svg>
             </div>
-            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 px-24 py-14'}>Last invoices</h1>
+            <h1 className={'text-2xl md:text-4xl font-extrabold text-gray-900 px-4 md:px-24 py-14'}>Last invoices</h1>
 
             <InvoicesRendering data={invoices} title={'Last invoices'} search={false}/>
 
