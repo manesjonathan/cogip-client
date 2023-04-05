@@ -8,8 +8,6 @@ const Invoices = () => {
     const [invoices, setInvoices] = useState([]);
     const [itemOffset, setItemOffset] = useState(0);
     const endOffset = itemOffset + itemsPerPage;
-
-    const [searchField, setSearchField] = useState("");
     const [currentItems, setCurrentItems] = useState([]);
 
     useEffect(() => {
@@ -34,7 +32,6 @@ const Invoices = () => {
 
     const handleChange = (e) => {
         const { value } = e.target;
-        setSearchField(value);
         if (value === "") {
             setItemOffset(0);
             setCurrentItems(invoices.slice(0, itemsPerPage));
