@@ -1,25 +1,4 @@
-import {getCompanyById} from "../../backend/backend.js";
-import {useEffect, useState} from "react";
-
 const InvoicesRendering = ({data}) => {
-    const [companyIds, setCompanyIds] = useState([]);
-
-    useEffect(() => {
-        Promise.all(
-            data.map((invoice) => {
-                return getCompanyById(invoice['id_company'])
-                    .then(data => {
-                        return data['company']['name'];
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        return null;
-                    });
-            })
-        ).then(names => {
-            setCompanyIds(names.filter(name => name !== null));
-        });
-    }, [data]);
 
     return (
         <div className={'bg-white px-4 md:px-24'}>
@@ -47,7 +26,7 @@ const InvoicesRendering = ({data}) => {
                             <tr key={index} className={'even:bg-gray-200'}>
                                 <td className={'py-3 px-4'}>{invoice.ref}</td>
                                 <td className={'py-3 px-4'}>{new Date(date.setDate(date.getDate() + 15)).toLocaleDateString()}</td>
-                                <td className={'py-3 px-4'}>{companyIds[index]}</td>
+                                <td className={'py-3 px-4'}>{invoice['name']}</td>
                                 <td className={'py-3 px-4'}>{new Date(invoice['created_at'].split(' ')[0]).toLocaleDateString()}</td>
                             </tr>
                         )
