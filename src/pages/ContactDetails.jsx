@@ -46,7 +46,7 @@ const ContactDetails = () => {
                 </div>
 
                 <div className={'flex flex-col md:flex-row'}>
-                    <img className={'w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto'} src={PictureProfile1} alt=""/>
+                    <img className={'w-48 rounded-full mx-auto'} src={PictureProfile1} alt=""/>
                 </div>
             </div>
         </main>

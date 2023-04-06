@@ -79,11 +79,11 @@ const Invoices = () => {
             <ReactPaginate
                 className="flex w-2/3 justify-between mx-auto pt-12"
                 breakLabel="..."
-                nextLabel="next >"
+                nextLabel=">"
                 onPageChange={handlePageClick}
-                pageRangeDisplayed={5}
+                pageRangeDisplayed={2}
                 pageCount={pageCount}
-                previousLabel="< previous"/>
+                previousLabel="<"/>
         </main>
     );
 };

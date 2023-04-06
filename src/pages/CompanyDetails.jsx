@@ -71,7 +71,7 @@ const CompanyDetails = () => {
                 <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'}>
                     {contacts.map((contact, index) => (
                         <div key={index}
-                             className={'flex bg-gray-100 rounded-2xl p-4 items-center justify-center bg-opacity-60 backdrop-blur-sm cursor-pointer'}
+                             className={'flex bg-gray-200 rounded-2xl p-4 items-center bg-opacity-60 backdrop-blur-sm cursor-pointer'}
                              onClick={(e) => handleOnClick(e, contact['id'])}>
                             <img src={index % 2 !== 0 ? PictureProfile1 : PictureProfile2} alt="Profile picture"
                                  className={'w-24 h-24 rounded-full'}/>
@@ -80,19 +80,16 @@ const CompanyDetails = () => {
                             </div>
                         </div>
                     ))}
-                    <div className={'absolute right-0'}>
+                    <div className={'hidden md:flex absolute right-0'}>
                         <PinOne/>
                     </div>
                 </div>
             </div>
-
             <div className={''}>
-                <h2 className="px-4 md:mx-24 pt-8 pb-12 border-b-2 text-2xl md:text-4xl font-extrabold text-gray-900 py-12">Last
+                <h2 className="px-4 md:mx-24 pt-8 pb-12 text-2xl md:text-4xl font-extrabold text-gray-900 py-12">Last
                     invoices</h2>
                 <InvoicesRendering data={invoices}/>
-
             </div>
-
         </main>
     );
 }
